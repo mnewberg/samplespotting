@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+
+<head>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>result</title>
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="Matt Newberg">  
+	{% if redirect %}
+	<meta http-equiv="REFRESH" content="0;url={{ redirect }}">
+	{% endif %}
+	
+	<!-- Date: 2011-10-13 -->
+</head>
+<body>
+	{% for item in output %}
+	<li>
+		{% ifnotequal item.1.0 None %}				
+		<a href="{{ item.1.0 }}">{{ item.0 }} - {{item.1.1}}</a> <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://spottedbreaks.com" data-text="I just discovered the sample for {{ song }} by {{ artist }} on Spottedbreaks.com!" data-count="none" data-via="thenewb">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+		
+			{% else %}
+			<b>{{ item.0 }} - {{ item.1.1 }}</b> <i>Not on Spotify. <a href="http://www.youtube.com/results?search_query={{item.0}} {{item.1.1}}"> Search youtube instead?
+			{% endifnotequal %} 
+		</a>  
+		
+	</li>
+	{% endfor %} 
+	
+	
+	
+</body>
+</html>

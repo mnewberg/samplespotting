@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SAMPLESPOTTING</title>
+	<link rel="stylesheet" type="text/css" media="all" href="/media/css/960.css" />
+	
+	
+	<style>
+	@import url(http://fonts.googleapis.com/css?family=Pacifico|Francois+One&subset=latin,latin-ext);
+	ul {
+		list-style-type:none;
+	}
+	#info{
+		font-family: Francois One, sans-serif;
+		text-align:center;
+		color:#ffffff;
+	}
+	#share {
+		padding-top:20px;
+	}
+	
+	#container {
+		width:360px;
+		margin:0 auto;
+		padding-top:80px;
+		text-align:left;
+
+	}
+	.paper {
+		position:relative;
+		width:360px;
+		height:400px;
+		background-color:#faf8e5;
+		border:1px solid #e3e3e3;
+	}
+	.red-line {
+		height:400px;
+		width:1px;
+		background-color:#ef8b8b;
+		float:left;
+		margin-left:4px;
+	}
+	.first {
+		margin-left:40px;
+   	}
+	ul#lines li {
+		height:30px;
+		color:green;
+		font-size:16px;
+		font-family: Francois One, sans-serif;
+		width:280px;
+		border-top:2px solid #f2f0df;
+		padding-left:0px;
+	}
+	.tape{
+		position:absolute;
+		top:-15px; right:80px;
+		width: 130px;
+		height: 35px;
+		background-color:#fff;
+		opacity:0.6;
+		border-left: 1px dashed rgba(0, 0, 0, 0.1);
+		border-right: 1px dashed rgba(0, 0, 0, 0.1);
+		-webkit-box-shadow: 0px 0px 1px 0px #cccccc;
+		-moz-box-shadow: 0px 0px 1px 0px #cccccc;
+		box-shadow: 0px 0px 1px 0px #cccccc;
+		-webkit-transform: rotate(-2deg) skew(0,0) translate(0%,-5px);
+		-moz-transform: rotate(-2deg) skew(0,0) translate(0%,-5px);
+		-o-transform: rotate(-2deg) skew(0,0) translate(0%,-5px);
+		transform: rotate(-2deg) skew(0,0) translate(0%,-5px);
+	}
+	.left-shadow{
+		width: 140px;
+		height: 140px;
+		bottom:-5px; left:-12px;
+		position:absolute;
+		z-index:-6;
+		display: inline-block;
+		-webkit-box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.4);
+		-moz-box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.4);
+		box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.4);
+		-moz-transform: scale(1) rotate(274deg) translate(20px, 25px) skew(9deg, 0deg);
+		-webkit-transform: scale(1) rotate(274deg) translate(20px, 25px) skew(9deg, 0deg);
+		-o-transform: scale(1) rotate(274deg) translate(20px, 25px) skew(9deg, 0deg);
+		-ms-transform: scale(1) rotate(274deg) translate(20px, 25px) skew(9deg, 0deg);
+		transform: scale(1) rotate(274deg) translate(20px, 25px) skew(9deg, 0deg);
+	}
+	.right-shadow{
+		width: 140px;
+		height: 140px;
+		bottom:-13px; right:-4px;
+		position:absolute;
+		z-index:-6;
+		display: inline-block;
+		-webkit-box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.4);
+		-moz-box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.4);
+		box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.4);
+		-moz-transform: scale(1) rotate(184deg) translate(20px, 25px) skew(9deg, 0deg);
+		-webkit-transform: scale(1) rotate(184deg) translate(20px, 25px) skew(9deg, 0deg);
+		-o-transform: scale(1) rotate(184deg) translate(20px, 25px) skew(9deg, 0deg);
+		-ms-transform: scale(1) rotate(184deg) translate(20px, 25px) skew(9deg, 0deg);
+		transform: scale(1) rotate(184deg) translate(20px, 25px) skew(9deg, 0deg);
+	}
+	
+	#results {
+		background-image: url(/media/clipboard.png);
+		background-position:right;
+		background-repeat:no-repeat;
+		height:550px;
+		
+	}
+	
+	#instructions {
+		text-align: left;
+		
+	  /*  width:200px; */
+		color:white;
+	  /*  float:left; */
+		font-family: Francois One, sans-serif;
+		font-size: 35px;
+	}
+	
+	#instructions a:visited {
+		color:white;
+	}
+	
+	#instructions a:active {
+		color: white;
+	}
+	
+	#info a:visited {
+		color:white;
+	}
+	
+	#info a:active {
+		color:white;
+	}
+	
+	
+	body { 
+		background-image:url(/media/Wood_bg.jpg);
+	 }
+	
+	a:active img {
+	    -webkit-transform: rotate(1200deg);
+	    -webkit-transition: -webkit-transform 10s ease-out;
+	}
+	
+	article div {
+	  margin: 10px 0;
+	}
+
+	label {
+	  line-height: 32px;
+	}
+
+	/* for safari */
+	*[draggable=true] {
+	  -khtml-user-drag: element;
+	  cursor: move;
+	}
+
+	
+
+	#drop .info {
+	  color: #999;
+	  text-align: center;
+	}
+
+	#drop ul {
+	  margin: 0;
+	  padding: 0;
+	}
+
+/*	#drop li {
+	  border-top: 2px solid #ccc;
+	  list-style: none;
+	  padding: 5px;
+	  font-size: 90%;
+	}
+*/
+	</style>
+	<script src="/JS/h5utils.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" src="http://jqueryrotate.googlecode.com/files/jQueryRotate.2.1.js"></script>   
+	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+	<script>
+	$(document).ready(function() {
+	function cancel(e) {
+	  if (e.preventDefault) e.preventDefault(); // required by FF + Safari
+	  e.dataTransfer.dropEffect = 'copy'; // tells the browser what drop effect is allowed here
+	  return false; // required by IE
+	}
+
+	function entities(s) {
+	  var e = {
+    	'"' : '&quot;',
+	    '&' : '&amp;',
+    	'<' : '&lt;',
+	    '>' : '&gt;'
+	  };
+	  return s.replace(/["&<>]/g, function (m) {
+	    return e[m];
+	  });
+	}
+
+	var drop = document.querySelector('#drop');
+	// Tells the browser that we *can* drop on this target
+	addEvent(drop, 'dragover', cancel);
+	addEvent(drop, 'dragenter', cancel);
+
+	addEvent(drop, 'drop', function (e) {
+	  if (e.preventDefault) e.preventDefault(); // stops the browser from redirecting off to the text.
+      
+      var formURL;
+	  if (e.dataTransfer.types) {
+	  	[].forEach.call(e.dataTransfer.types, function (type) {
+		   	formURL = e.dataTransfer.getData(type);
+		});
+		
+		$("input:hidden").val(formURL);
+		// $("#myForm").submit();
+		$.getJSON('/search?xhr=True', { q:formURL }, function(data) {
+		   $('#lines').empty();
+		   $('#share').empty();                                 
+		   var output = data.output;
+		   
+		   if(data.Localerror){
+			$('#lines').append('<li>Can\'t drag local files!</li>')
+		}
+		                                             
+	       if(typeof data.spotify_error !== "undefined") {
+		    $('#lines').append('<li>'+data.sampled_song + ' by ' + data.sampled_artist + '</li><li> is not on Spotify.</li><li><a href="http://www.youtube.com/results?search_query='+data.sampled_song+', '+data.sampled_artist+'" target="_blank">Search YouTube Instead.</a></li>')                                                            
+	       } else if(data.Error) {
+	        $('#lines').append('Ayo! My B. Can\'t find a sample for '+data.song+'. Try one of the following top artists!<ul><li><a href="spotify:search:de la soul">De La Soul</a></li><li><a href="spotify:search:Public Enemy">Public Enemy</a></li><li><a href="spotify:search:Ice Cube">Ice Cube</a></li><li><a href="spotify:search:A Tribe Called Quest">A Tribe Called Quest</a></li><li><a href="spotify:search:Big Daddy Kane">Big Daddy Kane</a></li><li><a href="spotify:search:Gang Starr">Gang Starr</a></li><li><a href="spotify:search:Pete Rock CL Smooth">Pete Rock + CL Smooth</a></li><li><a href="spotify:search:EPMD">EPMD</a></li><li><a href="spotify:search:Eric B Rakim">Eric B & Rakim</a></li><li><a href="spotify:search:LL Cool J">LL Cool J</a></li></ul>');
+	       } else if(data.local_error) {
+	        $('#lines').append('You dragged a local file! Please try one that is on Spotify.');	                    
+	       } else {  
+		    var count = 0;
+		   	$.each(output, function(key, val)  {
+		      var songTitle = key;
+			  var spotifyLink = val[0];
+			  var samplingArtist = val[1];
+
+			  console.log("songTitle: " + key);
+		      // song metadata + spotify URL
+		   	  console.log("spotifyURI: " + val[0]);
+		      console.log("sampling artist: " + val[1]);
+	              console.log(data.query);
+	      console.log("");              
+                         
+			  if(spotifyLink) {      
+			  	$('#lines').append('<li><a href='+val[0]+' id=song'+count+'>'+val[1]+' - '+key+'</a></li><br>')
+			  } else {
+				$('#lines').append('<li>'+songTitle + ' by ' + samplingArtist + '</li><li> is not on Spotify.</li><li>  <a href="http://www.youtube.com/results?search_query='+songTitle+', '+samplingArtist+'" target="_blank">Search YouTube Instead.</a></li>')
+		      }                                                        
+			  count++;
+		   })         
+		  }
+		  if(typeof output !== "undefined") {                                                                 
+		  var script = document.createElement('script') ;
+		  script.type = 'text/javascript';    
+		  script.src = 'http://platform.twitter.com/widgets.js';
+		  $('#share').append('<a href=https://twitter.com/share class=twitter-share-button data-url=http://samplespotting.com data-text="I just discovered the sample for '+data.song+' by '+data.artist+' on Samplespotting!" data-count=none data-via=thenewb>Tweet</a>'); 
+		  $('#share').append(script);}
+          
+	    });
+		// formURL
+	  } else {
+    	// ... however, if we're IE, we don't have the .types property, so we'll just get the Text value
+	    formURL = e.dataTransfer.getData('Text');
+	  }
+  
+	  return false;
+	});
+	});
+	var angle = 0;
+	setInterval(function(){
+	      angle+=10;
+	     $("#pic").rotate(angle);
+	},50);
+		// GOOGLE ANALYTICS
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-27060304-1']);
+	  _gaq.push(['_trackPageview']);
+	  
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	
+	</script>
+</head>
+<body>
+<div class="container_16" style="">	
+<div align="center"><img src="/media/samplespotting_logo.png"></div>	
+	<section id="drop">
+		<div class="grid_8 alpha" style="background-image:url(/media/platter.png);background-repeat:no-repeat">
+		<!-- <img src="/media/platter.png" style="z-index:-1; top:125px; left:215px"> -->
+		<img src="/media/spot_record.png" id="pic" name="pic" width="355" height="355" style="margin-left:10px">
+		<br><br>
+		<div id="instructions">
+		Drag a song from <a href="http://www.spotify.com/">Spotify</a> onto the turntable to discover <b><u>the original</u></b> sample.</div>
+        
+		</div></section>
+		<div class="grid_8 omega">
+			<div id="results">
+				<div id="container">
+					<div class="paper">
+						<div class="tape"></div>
+						<div class="red-line first"></div>
+						<div class="red-line"></div>
+						<div id="share" align="center"></div> 
+								<ul id="lines">
+									<li><i>Samples for {{ song }}:</i></li>
+									{% for item in output %}
+									<li>
+									{% ifnotequal item.1.0 None %}
+					                <a href="{{ item.1.0 }}">{{ item.0 }} - {{item.1.1}}</a>
+								                        {% else %}
+								                        {{ item.0 }} - {{ item.1.1 }} <i>Not on Spotify.</i></li><br><li>
+								 <a href="http://www.youtube.com/results?search_query={{ item.0 }} {{ item.1.1 }}">
+								 Search youtube instead?</li>
+								                        {% endifnotequal %}
+								                </a>
+
+								        </li><br>
+								        {% endfor %}
+									
+											</ul>
+											</div>
+
+			<br>
+			<div id="info">Created by <a href="http://www.twitter.com/thenewb">@thenewb</a><br>Powered by <a href="http://www.the-breaks.com">the-breaks.com</a> + Spotify</div>
+
+			
+			</div>
+			
+  </div>
+    <form id="myForm" action="/search">
+		<input type="hidden" name="q"/>
+    </form>
+<br>
+<!-- <div id="results">
+	<div id="container">
+		<div class="paper">
+			<div class="tape"></div>
+			<div class="red-line first"></div>
+			<div class="red-line"></div>
+			<div id="share" align="center"></div> 
+					<ul id="lines">
+								</ul>
+					
+	
+	
+<br>
+<div id="info">Created by <a href="http://www.twitter.com/thenewb">@thenewb</a><br>Powered by <a href="http://www.the-breaks.com">the-breaks.com</a> + Spotify</div>
+
+</div> -->
+</body>
+</html>
+
